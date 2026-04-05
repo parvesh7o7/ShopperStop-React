@@ -1,0 +1,123 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 3rem;
+  background: rgba(15, 23, 42, 0.65);
+  /* Sleek slate-900 with transparency */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.nav_container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar_brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  transition: filter 0.3s ease;
+}
+
+.navbar_brand:hover {
+  filter: brightness(1.2);
+}
+
+.nav_links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav_links a {
+  text-decoration: none;
+  color: #cbd5e1;
+  /* Slate 300 */
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav_links a:hover {
+  color: #ffffff;
+}
+
+.nav_links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav_links a:hover::after {
+  width: 100%;
+}
+
+.auth_links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.auth_links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.auth_links a:first-child {
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.auth_links a:first-child:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.auth_links a:last-child {
+  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.auth_links a:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav_links {
+    gap: 1.5rem;
+  }
+}
