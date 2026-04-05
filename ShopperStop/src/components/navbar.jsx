@@ -14,8 +14,8 @@ function Navbar() {
                 </div>
                 <div className="auth">
                     <div className="auth_links">
-                        <Link to="/login">Login</Link>
-                        <Link to="/signup">Sign Up</Link>
+                        <Link to="/auth">Login</Link>
+                        <Link to="/auth">Sign Up</Link>
                     </div>
                 </div>
             </nav>
