@@ -1,26 +1,46 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import './auth.css';
 import { useForm } from 'react-hook-form'
+import { AuthContext } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 function Authentication() {
-    const [mode, setMode] = useState("signup")
+    const [mode, setMode] = useState("signup");
+    const { signup, user, logout, login } = useContext(AuthContext);
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-
-    function onSubmit() {
+    const navigate = useNavigate();
+    const [error, setError] = useState(null);
+    function onSubmit(data) {
         // alert("User SignedUp");
+        setError(null);
+        let result;
+        if (mode === "signup") {
+            result = signup(data.email, data.password);
+        } else {
+            result = login(data.email, data.password);
+        }
+
+        if (!result.success) {
+            setError(result.message);
+        } else {
+            navigate("/");
+        }
     }
 
     return (
         <>
             <div className="authPage">
                 <div className="auth_container_box">
+                    {user && <p className="user_Status">User logged in {user.email}</p>}
+                    {user && <button className="logout_Button" onClick={logout}>Logout</button>}
                     <div className="auth_container">
                         <h1 className="page_title">{mode === "signup" ? "SignUp" : "Login"}</h1>
                     </div>
                     <form className="auth_form" onSubmit={handleSubmit(onSubmit)}>
+                        {error && <div className="error_message">{error}</div>}
                         <div className="form_group">
                             <label className="form_label" htmlFor="email">Email</label>
                             <input type="email" className="form_input" id="email" {...register("email", { required: "Email is required" })} />
