@@ -148,26 +148,7 @@
     animation: slideDown 0.3s ease;
 }
 
-.logout_Button {
-    background: #f1f5f9;
-    color: #ef4444;
-    border: 1px solid #fecaca;
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: block;
-    margin: 0 auto 1.5rem auto;
-}
 
-.logout_Button:hover {
-    background: #fee2e2;
-    color: #b91c1c;
-    border-color: #fca5a5;
-    transform: translateY(-1px);
-}
 
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-5px); }

@@ -112,6 +112,43 @@
   filter: brightness(1.1);
 }
 
+.user_info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.user_email_text {
+  color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.logout_Button {
+  background: transparent;
+  color: #fca5a5;
+  border: 1px solid rgba(254, 202, 202, 0.2);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.logout_Button:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.5);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem 1.5rem;

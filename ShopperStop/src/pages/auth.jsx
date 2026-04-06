@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import './auth.css';
 import { useForm } from 'react-hook-form'
-import { AuthContext } from "../context/authContext";
+import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 function Authentication() {
     const [mode, setMode] = useState("signup");
-    const { signup, user, logout, login } = useContext(AuthContext);
+    const { signup, user, logout, login } = useAuth();
     const {
         register,
         handleSubmit,
@@ -34,8 +34,7 @@ function Authentication() {
         <>
             <div className="authPage">
                 <div className="auth_container_box">
-                    {user && <p className="user_Status">User logged in {user.email}</p>}
-                    {user && <button className="logout_Button" onClick={logout}>Logout</button>}
+
                     <div className="auth_container">
                         <h1 className="page_title">{mode === "signup" ? "SignUp" : "Login"}</h1>
                     </div>
@@ -86,5 +85,7 @@ function Authentication() {
         </>
     )
 }
+
+
 
 export default Authentication;
