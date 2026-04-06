@@ -5,18 +5,21 @@ import Authentication from './pages/auth'
 import Home from './pages/home'
 import Checkout from './pages/checkout'
 import Navbar from './components/navbar'
+import AuthProvider from './context/authContext'
 function App() {
   return (
     <>
-      <div className="app">
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/auth' element={<Authentication />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='*' element={<p>404 Not Found</p>} />
-        </Routes>
-      </div>
+      <AuthProvider>
+        <div className="app">
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/auth' element={<Authentication />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='*' element={<p>404 Not Found</p>} />
+          </Routes>
+        </div>
+      </AuthProvider>
     </>
   )
 }

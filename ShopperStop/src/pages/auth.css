@@ -1,0 +1,202 @@
+.authPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    /* Height minus navbar */
+    background: #f8fafc;
+    /* Subtle off-white to contrast the white form */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.auth_container_box {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: zoomIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.auth_container {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page_title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    background: #0f172a;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.auth_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form_label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.form_input {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+    color: #0f172a;
+    background: #f8fafc;
+}
+
+.form_input:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.submitForm {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.submitForm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    filter: brightness(1.05);
+}
+
+.switchAuth {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.authLink {
+    color: #3b82f6;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.authLink:hover {
+    color: #a855f7;
+    text-decoration: underline;
+}
+
+.user_Status {
+    background: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    animation: slideDown 0.3s ease;
+}
+
+.error_message {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    margin-bottom: 1rem;
+    animation: slideDown 0.3s ease;
+}
+
+.form_error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: -0.25rem;
+    padding-left: 0.25rem;
+    animation: slideDown 0.3s ease;
+}
+
+.logout_Button {
+    background: #f1f5f9;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+}
+
+.logout_Button:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fca5a5;
+    transform: translateY(-1px);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .authPage {
+        padding: 1rem;
+    }
+
+    .auth_container_box {
+        padding: 2.5rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .page_title {
+        font-size: 2rem;
+    }
+}
