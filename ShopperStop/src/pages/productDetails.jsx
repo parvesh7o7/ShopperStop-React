@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getProductsByID } from "../data/product";
 import "./productDetails.css";
-
+import { useCart } from "../context/cartContext";
 function ProductDetails() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -16,6 +16,8 @@ function ProductDetails() {
         setProduct(foundProduct);
     }, [id]);
 
+    const { addToCart, cartItem } = useCart();
+
     if (!product) {
         return (
             <div className="loading_state">
@@ -23,6 +25,11 @@ function ProductDetails() {
             </div>
         );
     }
+
+
+    const productInCart = cartItem.find((item) => item.id === product.id);
+    const productQuantityLabel = productInCart ? `(${productInCart.quantity})` : "";
+
     return (
         <>
             <div className="page">
@@ -35,7 +42,7 @@ function ProductDetails() {
                             <h1 className="productName">{product.name}</h1>
                             <p className="productPrice">${product.price}</p>
                             <p className="productDescription">{product.description}</p>
-                            <button className="addBtn">Add to Cart</button>
+                            <button className="addBtn" onClick={() => { addToCart(product.id) }}>Add to Cart {productQuantityLabel}</button>
                         </div>
                     </div>
                 </div>
